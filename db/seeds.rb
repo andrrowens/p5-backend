@@ -6,8 +6,8 @@ Plant.destroy_all
 
 puts "Creating seed data..." 
 
-u1 = User.create(email: "andrew1@gmail.com", username: "andrew1", password: "password")
-u4 = User.create(email: "sammy8@gmail.com", username: "plantlvr8", password: "password")
+u1 = User.create(email: "andrew1@gmail.com", username: "andrew1", password: "password", city: "Colorado Springs", state: "CO", zipcode: 97654)
+u4 = User.create(email: "sammy8@gmail.com", username: "plantlvr8", password: "password", city: "Smithville", state: "WA", zipcode: 23987)
 
 
 l1 = Listing.create(title: "Young serviceberrys", plant_name: "apple serviceberry", description: "yada yada yada", city: "San Diego", state: "CA", zipcode: 91976, image: "test", plant_id: 7, user_id: 1)

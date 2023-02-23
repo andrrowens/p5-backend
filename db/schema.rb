@@ -19,8 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_230702) do
     t.string "city"
     t.string "state"
     t.integer "zipcode"
-    t.integer "plant_id", null: false
-    t.integer "user_id", null: false
+    t.integer "plant_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["plant_id"], name: "index_listings_on_plant_id"
@@ -41,7 +41,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_230702) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
+    t.string "city"
+    t.string "state"
+    t.integer "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
