@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_22_230702) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_202327) do
   create_table "listings", force: :cascade do |t|
     t.string "title"
     t.string "plant_name"
@@ -19,8 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_230702) do
     t.string "city"
     t.string "state"
     t.integer "zipcode"
-    t.integer "plant_id"
     t.integer "user_id"
+    t.integer "plant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["plant_id"], name: "index_listings_on_plant_id"
@@ -42,13 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_230702) do
     t.string "email"
     t.string "username"
     t.string "password_digest"
-    t.string "city"
-    t.string "state"
-    t.integer "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "listings", "plants"
-  add_foreign_key "listings", "users"
 end

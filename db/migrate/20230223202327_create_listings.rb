@@ -8,8 +8,8 @@ class CreateListings < ActiveRecord::Migration[7.0]
       t.string :city
       t.string :state
       t.integer :zipcode
-      t.belongs_to :plant, null: false, foreign_key: true
-      t.belongs_to :user, null: false, foreign_key: true
+      t.belongs_to :user
+      t.belongs_to :plant
 
       t.timestamps
     end

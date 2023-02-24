@@ -1,13 +1,26 @@
 puts "Deleting old data..." 
 
-User.destroy_all  
-Listing.destroy_all 
+User.destroy_all   
 Plant.destroy_all
+Listing.destroy_all 
 
 puts "Creating seed data..." 
 
-u1 = User.create(email: "andrew1@gmail.com", username: "andrew1", password: "password", city: "Colorado Springs", state: "CO", zipcode: 97654)
-u4 = User.create(email: "sammy8@gmail.com", username: "plantlvr8", password: "password", city: "Smithville", state: "WA", zipcode: 23987)
+u1 = User.create(email: "andrew1@gmail.com", username: "andrew1", password: "password")
+u4 = User.create(email: "sammy8@gmail.com", username: "plantlvr8", password: "password")
+
+
+
+p1 = Plant.create(common_name: "plant1", scientific_name: "scientific1", cycle: "perennial", watering: "frequent", sunlight: "full sun", image: "")
+p2 = Plant.create(common_name: "plant2", scientific_name: "scientific2", cycle: "annual", watering: "infrequent", sunlight: "limited sun", image: "")
+p3 = Plant.create(common_name: "plant3", scientific_name: "scientific3", cycle: "annual", watering: "frequent", sunlight: "full sun", image: "")
+p4 = Plant.create(common_name: "plant4", scientific_name: "scientific4", cycle: "perennial", watering: "semi-frequent", sunlight: "limited sun", image: "")
+p5 = Plant.create(common_name: "plant5", scientific_name: "scientific5", cycle: "annual", watering: "infrequent", sunlight: "full sun", image: "")
+p6 = Plant.create(common_name: "plant6", scientific_name: "scientific6", cycle: "annual", watering: "infrequent", sunlight: "partial sun", image: "")
+p7 = Plant.create(common_name: "plant7", scientific_name: "scientific7", cycle: "perennial", watering: "frequent", sunlight: "full sun", image: "")
+p8 = Plant.create(common_name: "plant8", scientific_name: "scientific8", cycle: "annual", watering: "semi-frequent", sunlight: "limited sun", image: "")
+p9 = Plant.create(common_name: "plant9", scientific_name: "scientific9", cycle: "perennial", watering: "frequent", sunlight: "partial sun", image: "")
+p10 = Plant.create(common_name: "plant10", scientific_name: "scientific10", cycle: "annual", watering: "frequent", sunlight: "full sun", image: "")
 
 
 l1 = Listing.create(title: "Young serviceberrys", plant_name: "apple serviceberry", description: "yada yada yada", city: "San Diego", state: "CA", zipcode: 91976, image: "test", plant_id: 7, user_id: 1)
@@ -20,16 +33,5 @@ l7 = Listing.create(title: "Extra Japanese maples", plant_name: "Japanese maple"
 l8 = Listing.create(title: "Free red maple", plant_name: "red maple", description: "yada yada yada", city: "Salt Lake City", state: "UT", zipcode: 28847, image: "test", plant_id: 3, user_id: 1)
 l9 = Listing.create(title: "ISO home for sugar maple", plant_name: "sugar maple", description: "yada yada yada", city: "San Jose", state: "CA", zipcode: 34823, image: "test", plant_id: 1, user_id: 1)
 l10 = Listing.create(title: "Save my amur maple", plant_name: "Amur maple", description: "yada yada yada", city: "Paradise", state: "AZ", zipcode: 48277, image: "test", plant_id: 4, user_id: 2)
-
-p1 = Plant.create(common_name: "plant1", scientific_name: "scientific1", cycle: "perennial", watering: "frequent", sunlight: "full sun", image: "")
-p2 = Plant.create(common_name: "plant2", scientific_name: "scientific2", cycle: "annual", watering: "infrequent", sunlight: "limited sun", image: "")
-p3 = Plant.create(common_name: "plant3", scientific_name: "scientific3", cycle: "annual", watering: "frequent", sunlight: "full sun", image: "")
-p4 = Plant.create(common_name: "plant4", scientific_name: "scientific4", cycle: "perennial", watering: "semi-frequent", sunlight: "limited sun", image: "")
-p5 = Plant.create(common_name: "plant5", scientific_name: "scientific5", cycle: "annual", watering: "infrequent", sunlight: "full sun", image: "")
-p6 = Plant.create(common_name: "plant6", scientific_name: "scientific6", cycle: "annual", watering: "infrequent", sunlight: "partial sun", image: "")
-p7 = Plant.create(common_name: "plant7", scientific_name: "scientific7", cycle: "perennial", watering: "frequent", sunlight: "full sun", image: "")
-p8 = Plant.create(common_name: "plant8", scientific_name: "scientific8", cycle: "annual", watering: "semi-frequent", sunlight: "limited sun", image: "")
-p9 = Plant.create(common_name: "plant9", scientific_name: "scientific9", cycle: "perennial", watering: "frequent", sunlight: "partial sun", image: "")
-p10 = Plant.create(common_name: "plant10", scientific_name: "scientific10", cycle: "annual", watering: "frequent", sunlight: "full sun", image: "")
 
 puts "✅ Done seeding!"
