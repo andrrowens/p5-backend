@@ -5,12 +5,16 @@ class User < ApplicationRecord
     has_many :plants, through: :listings
 
 
-    has_many :friend_requests_as_sender, foreign_key: :sender_id, class_name: :FriendRequest
-    has_many :friend_requests_as_receiver, foreign_key: :receiver_id, class_name: :FriendRequest 
-
-    #custom relation query
-    has_many :friendships, ->(user) { where("friend_a_id = ? OR friend_b_id = ?", user.id, user.id) }
-    # has_many :friendships, -> { where("friend_a_id = ? OR friend_b_id = ?", user.id, user.id) }, class_name: "User"
-    has_many :friends, through: :friendships
+    
+    has_many :sent_friendships_requests, class_name: "Friendship", foreign_key: :sender_id, dependent: :destroy
+       
+    
+    has_many :received_friendships_requests, class_name: "Friendship", foreign_key: :receiver_id, dependent: :destroy
+       
+    
+    def friends
+        friendships = Friendship.where(sender: self, status: "accepted").or(Friendship.where(receiver: self, status: "accepted"))
+        friendships.map{|f| f.sender === self ? f.recipient : f.sender}
+    end
 
 end

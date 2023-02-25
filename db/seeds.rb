@@ -7,7 +7,12 @@ Listing.destroy_all
 puts "Creating seed data..." 
 
 u1 = User.create(email: "andrew1@gmail.com", username: "andrew1", password: "password")
-u4 = User.create(email: "sammy8@gmail.com", username: "plantlvr8", password: "password")
+u2 = User.create(email: "sammy1@gmail.com", username: "sammy1", password: "password")
+u3 = User.create(email: "jack1@gmail.com", username: "jack1", password: "password")
+u4 = User.create(email: "kate1@gmail.com", username: "kate1", password: "password")
+u5 = User.create(email: "michelle1@gmail.com", username: "michelle1", password: "password")
+u6 = User.create(email: "mike1@gmail.com", username: "mike1", password: "password")
+
 
 
 
