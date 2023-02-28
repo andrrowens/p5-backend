@@ -1,3 +1,44 @@
+# require 'rest-client'
+
+
+# puts "Deleting old data..." 
+
+# User.destroy_all   
+# Plant.destroy_all
+# Listing.destroy_all 
+ 
+
+# puts "Getting Plants Data"
+
+#     # def api_key
+#     #     ENV["API_KEY"]
+#     # end
+
+#     def plants_dataset
+#         # api_data = { key: api_key }       
+#             plants_data = RestClient.get("https://perenual.com/api/species-list?key=sk-tz5C63f677fa6cac6101")       
+#             parsed_plants_data = JSON.parse(plants_data) 
+#             plants_array = parsed_plants_data["plants"]     
+#             plants_array.each { |p|           
+#             plant = Plant.create(                              
+#                     common_name: p["common_name"],            
+#                     scientific_name: p["scientific_name"], 
+#                     cycle: p["cycle"],            
+#                     watering: p["watering"],
+#                     sunlight: p["sunlight"], 
+#                     image: p["default-image"]
+#                 )   
+#             }                         
+#    end
+
+#     plants_dataset 
+
+# puts "Seeding New Plants Data"
+
+
+
+#------------------------------------------------------------------------------------------
+
 puts "Deleting old data..." 
 
 User.destroy_all   
@@ -6,8 +47,8 @@ Listing.destroy_all
 
 puts "Creating seed data..." 
 
-u1 = User.create(email: "andrew1@gmail.com", username: "andrew1", password: "password")
-u2 = User.create(email: "sammy1@gmail.com", username: "sammy1", password: "password")
+u1 = User.create(email: "andre@gmail.com", username: "andre", password: "password")
+u2 = User.create(email: "samm@gmail.com", username: "sammy1", password: "password")
 u3 = User.create(email: "jack1@gmail.com", username: "jack1", password: "password")
 u4 = User.create(email: "kate1@gmail.com", username: "kate1", password: "password")
 u5 = User.create(email: "michelle1@gmail.com", username: "michelle1", password: "password")
