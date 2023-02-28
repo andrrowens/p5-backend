@@ -47,12 +47,12 @@ Listing.destroy_all
 
 puts "Creating seed data..." 
 
-u1 = User.create(email: "andre@gmail.com", username: "andre", password: "password")
-u2 = User.create(email: "samm@gmail.com", username: "sammy1", password: "password")
-u3 = User.create(email: "jack1@gmail.com", username: "jack1", password: "password")
-u4 = User.create(email: "kate1@gmail.com", username: "kate1", password: "password")
-u5 = User.create(email: "michelle1@gmail.com", username: "michelle1", password: "password")
-u6 = User.create(email: "mike1@gmail.com", username: "mike1", password: "password")
+u1 = User.create(email: "andre@gmail.com", username: "andre", password: "password", city: "San Diego", state: "CA", zipcode: 91576)
+u2 = User.create(email: "samm@gmail.com", username: "sammy1", password: "password", city: "Dallas", state: "TX", zipcode: 42746)
+u3 = User.create(email: "jack1@gmail.com", username: "jack1", password: "password", city: "Durango", state: "CO", zipcode: 23375)
+u4 = User.create(email: "kate1@gmail.com", username: "kate1", password: "password", city: "Herndon", state: "VA", zipcode: 28475)
+u5 = User.create(email: "michelle1@gmail.com", username: "michelle1", password: "password", city: "Houston", state: "TX", zipcode: 21475)
+u6 = User.create(email: "mike1@gmail.com", username: "mike1", password: "password", city: "Nashville", state: "TN", zipcode: 38475)
 
 
 
