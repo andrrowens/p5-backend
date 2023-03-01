@@ -44,6 +44,7 @@ puts "Deleting old data..."
 User.destroy_all   
 Plant.destroy_all
 Listing.destroy_all 
+Friendship.destroy_all
 
 puts "Creating seed data..." 
 
@@ -79,5 +80,11 @@ l7 = Listing.create(title: "Extra Japanese maples", plant_name: "Japanese maple"
 l8 = Listing.create(title: "Free red maple", plant_name: "red maple", description: "yada yada yada", city: "Salt Lake City", state: "UT", zipcode: 28847, image: "test", plant_id: 3, user_id: 1)
 l9 = Listing.create(title: "ISO home for sugar maple", plant_name: "sugar maple", description: "yada yada yada", city: "San Jose", state: "CA", zipcode: 34823, image: "test", plant_id: 1, user_id: 1)
 l10 = Listing.create(title: "Save my amur maple", plant_name: "Amur maple", description: "yada yada yada", city: "Paradise", state: "AZ", zipcode: 48277, image: "test", plant_id: 4, user_id: 2)
+
+
+f1 = Friendship.create(sender_id: 1, receiver_id: 4, status: "pending")
+f2 = Friendship.create(sender_id: 3, receiver_id: 5, status: "accepted")
+f3 = Friendship.create(sender_id: 4, receiver_id: 6, status: "rejected")
+
 
 puts "✅ Done seeding!"
