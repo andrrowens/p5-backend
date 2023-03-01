@@ -7,6 +7,11 @@ Rails.application.routes.draw do
 
   get '/authenticated_user', to: 'users#show'
 
+  # get '/profile', to: 'sessions#show' 
+
+
+  get '/profile', to: 'users#show' 
+
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

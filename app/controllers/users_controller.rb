@@ -18,10 +18,14 @@ class UsersController < ApplicationController
         render json: user, status: :created   
     end
 
+    def profile
+        render json: @user, serializer: UserProfileSerializer
+    end
+
     private 
 
     def user_params
-        params.permit(:email, :username, :password)
+        params.permit(:email, :username, :password, :city, :state, :zipcode)
     end
 
 end
