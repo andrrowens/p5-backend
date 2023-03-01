@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
 
     def destroy
         friend = Friendship.find(params[:id])
-        if friend.recipient == @user || friend.sender == @user
+        if friend.receiver == @user || friend.sender == @user
             friend.update(status: "rejected")
         end
         render json: friend, status: 202
