@@ -10,17 +10,22 @@
 
 # puts "Getting Plants Data"
 
-#     # def api_key
-#     #     ENV["API_KEY"]
-#     # end
+#     def api_key
+#         ENV["API_KEY"]
+#     end
 
 #     def plants_dataset
-#         # api_data = { key: api_key }       
-#             plants_data = RestClient.get("https://perenual.com/api/species-list?key=sk-tz5C63f677fa6cac6101")       
-#             parsed_plants_data = JSON.parse(plants_data) 
-#             plants_array = parsed_plants_data["plants"]     
-#             plants_array.each { |p|           
-#             plant = Plant.create(                              
+#         api_data = { key: api_key }       
+#             plants_data = RestClient.get(`https://perenual.com/api/species-list?page=1&key=#{api_data[:key]}`)
+#             plants_array = JSON.parse(plants_data)["results"]
+#             plants_array.each do |p|
+            
+#             # parsed_plants_data = JSON.parse(plants_data) 
+#             # plants_array = parsed_plants_data["plants"]
+#             # debugger     
+#             # plants_array.each { |p| 
+
+#                 plant = Plant.create(                              
 #                     common_name: p["common_name"],            
 #                     scientific_name: p["scientific_name"], 
 #                     cycle: p["cycle"],            
@@ -28,10 +33,10 @@
 #                     sunlight: p["sunlight"], 
 #                     image: p["default-image"]
 #                 )   
-#             }                         
-#    end
+#             end                           
+#     end
 
-#     plants_dataset 
+#     plants_dataset() 
 
 # puts "Seeding New Plants Data"
 

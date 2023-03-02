@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # get '/profile', to: 'sessions#show' 
 
+  get '/plants', to: 'plants#get_plants'
 
   get '/profile', to: 'users#show' 
 

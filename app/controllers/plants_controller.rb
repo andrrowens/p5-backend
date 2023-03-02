@@ -1,9 +1,9 @@
+class PlantsController < ApplicationController
 # require 'dotenv'
 # require 'json'
 # Dotenv.load
 
-class PlantsController < ApplicationController
-
+# require 'rest-client'
  
 #     def plants
 #             @response =  RestClient.get "https://perenual.com/api/species-list?page=1",
@@ -23,6 +23,13 @@ class PlantsController < ApplicationController
 #             end
 #             end
 # end
+
+    # def get_plants 
+    #     url = "https://perenual.com/api/species-list?page=1&key=sk-tz5C63f677fa6cac6101"
+    #     plants_response = RestClient.get(url) 
+    #     render json: plants_response, status: :ok
+    # end
+
 
     def index 
         plants = Plant.all 
