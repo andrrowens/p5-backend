@@ -38,11 +38,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_235748) do
   end
 
   create_table "plants", force: :cascade do |t|
-    t.string "common_name"
-    t.string "scientific_name"
-    t.string "cycle"
+    t.string "name"
     t.string "watering"
     t.string "sunlight"
+    t.string "environment"
+    t.text "notes"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
