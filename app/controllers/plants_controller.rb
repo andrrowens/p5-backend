@@ -1,8 +1,39 @@
 class PlantsController < ApplicationController
+# require 'dotenv'
+# require 'json'
+# Dotenv.load
+
+# require 'rest-client'
+ 
+#     def plants
+#             @response =  RestClient.get "https://perenual.com/api/species-list?page=1",
+#              {content_type: :json, accept: :json, "user-key": ENV["API_KEY"]}
+          
+#             @plant_info = JSON.parse(@response.body)["plants"][0]
+             
+#             if @plant_info
+#               @plants = RestClient.get "https://perenual.com/api/species-list?page=1", 
+#               {content_type: :json, accept: :json, "user-key": ENV["API_KEY"]}
+         
+#               @plant_info["plants"] = JSON.parse(@plants.body)["plants"]
+         
+#               render json: @plants
+#             else
+#               render json: {message: "Plant Not Found", error: 404}
+#             end
+#             end
+# end
+
+    # def get_plants 
+    #     url = "https://perenual.com/api/species-list?page=1&key=sk-tz5C63f677fa6cac6101"
+    #     plants_response = RestClient.get(url) 
+    #     render json: plants_response, status: :ok
+    # end
+
 
     def index 
         plants = Plant.all 
-        render json: plants
+        render json: plants, status: :ok
     end
 
     def show
@@ -30,3 +61,5 @@ class PlantsController < ApplicationController
     end
 
 end
+
+

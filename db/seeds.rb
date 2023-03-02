@@ -1,26 +1,89 @@
+# require 'rest-client'
+
+
+# puts "Deleting old data..." 
+
+# User.destroy_all   
+# Plant.destroy_all
+# Listing.destroy_all 
+ 
+
+# puts "Getting Plants Data"
+
+#     def api_key
+#         ENV["API_KEY"]
+#     end
+
+#     def plants_dataset
+#         api_data = { key: api_key }       
+#             plants_data = RestClient.get(`https://perenual.com/api/species-list?page=1&key=#{api_data[:key]}`)
+#             plants_array = JSON.parse(plants_data)["results"]
+#             plants_array.each do |p|
+            
+#             # parsed_plants_data = JSON.parse(plants_data) 
+#             # plants_array = parsed_plants_data["plants"]
+#             # debugger     
+#             # plants_array.each { |p| 
+
+#                 plant = Plant.create(                              
+#                     common_name: p["common_name"],            
+#                     scientific_name: p["scientific_name"], 
+#                     cycle: p["cycle"],            
+#                     watering: p["watering"],
+#                     sunlight: p["sunlight"], 
+#                     image: p["default-image"]
+#                 )   
+#             end                           
+#     end
+
+#     plants_dataset() 
+
+# puts "Seeding New Plants Data"
+
+
+
+#------------------------------------------------------------------------------------------
+
 puts "Deleting old data..." 
 
 User.destroy_all   
 Plant.destroy_all
 Listing.destroy_all 
+Friendship.destroy_all
 
 puts "Creating seed data..." 
 
-u1 = User.create(email: "andrew1@gmail.com", username: "andrew1", password: "password")
-u4 = User.create(email: "sammy8@gmail.com", username: "plantlvr8", password: "password")
+u1 = User.create(email: "andre@gmail.com", username: "andre", password: "password", city: "San Diego", state: "CA", zipcode: 91576)
+u2 = User.create(email: "samm@gmail.com", username: "sammy1", password: "password", city: "Dallas", state: "TX", zipcode: 42746)
+u3 = User.create(email: "jack1@gmail.com", username: "jack1", password: "password", city: "Durango", state: "CO", zipcode: 23375)
+u4 = User.create(email: "kate1@gmail.com", username: "kate1", password: "password", city: "Herndon", state: "VA", zipcode: 28475)
+u5 = User.create(email: "michelle1@gmail.com", username: "michelle1", password: "password", city: "Houston", state: "TX", zipcode: 21475)
+u6 = User.create(email: "mike1@gmail.com", username: "mike1", password: "password", city: "Nashville", state: "TN", zipcode: 38475)
 
 
 
-p1 = Plant.create(common_name: "plant1", scientific_name: "scientific1", cycle: "perennial", watering: "frequent", sunlight: "full sun", image: "")
-p2 = Plant.create(common_name: "plant2", scientific_name: "scientific2", cycle: "annual", watering: "infrequent", sunlight: "limited sun", image: "")
-p3 = Plant.create(common_name: "plant3", scientific_name: "scientific3", cycle: "annual", watering: "frequent", sunlight: "full sun", image: "")
-p4 = Plant.create(common_name: "plant4", scientific_name: "scientific4", cycle: "perennial", watering: "semi-frequent", sunlight: "limited sun", image: "")
-p5 = Plant.create(common_name: "plant5", scientific_name: "scientific5", cycle: "annual", watering: "infrequent", sunlight: "full sun", image: "")
-p6 = Plant.create(common_name: "plant6", scientific_name: "scientific6", cycle: "annual", watering: "infrequent", sunlight: "partial sun", image: "")
-p7 = Plant.create(common_name: "plant7", scientific_name: "scientific7", cycle: "perennial", watering: "frequent", sunlight: "full sun", image: "")
-p8 = Plant.create(common_name: "plant8", scientific_name: "scientific8", cycle: "annual", watering: "semi-frequent", sunlight: "limited sun", image: "")
-p9 = Plant.create(common_name: "plant9", scientific_name: "scientific9", cycle: "perennial", watering: "frequent", sunlight: "partial sun", image: "")
-p10 = Plant.create(common_name: "plant10", scientific_name: "scientific10", cycle: "annual", watering: "frequent", sunlight: "full sun", image: "")
+
+# p1 = Plant.create(common_name: "plant1", scientific_name: "scientific1", cycle: "perennial", watering: "frequent", sunlight: "full sun", image: "")
+# p2 = Plant.create(common_name: "plant2", scientific_name: "scientific2", cycle: "annual", watering: "infrequent", sunlight: "limited sun", image: "")
+# p3 = Plant.create(common_name: "plant3", scientific_name: "scientific3", cycle: "annual", watering: "frequent", sunlight: "full sun", image: "")
+# p4 = Plant.create(common_name: "plant4", scientific_name: "scientific4", cycle: "perennial", watering: "semi-frequent", sunlight: "limited sun", image: "")
+# p5 = Plant.create(common_name: "plant5", scientific_name: "scientific5", cycle: "annual", watering: "infrequent", sunlight: "full sun", image: "")
+# p6 = Plant.create(common_name: "plant6", scientific_name: "scientific6", cycle: "annual", watering: "infrequent", sunlight: "partial sun", image: "")
+# p7 = Plant.create(common_name: "plant7", scientific_name: "scientific7", cycle: "perennial", watering: "frequent", sunlight: "full sun", image: "")
+# p8 = Plant.create(common_name: "plant8", scientific_name: "scientific8", cycle: "annual", watering: "semi-frequent", sunlight: "limited sun", image: "")
+# p9 = Plant.create(common_name: "plant9", scientific_name: "scientific9", cycle: "perennial", watering: "frequent", sunlight: "partial sun", image: "")
+# p10 = Plant.create(common_name: "plant10", scientific_name: "scientific10", cycle: "annual", watering: "frequent", sunlight: "full sun", image: "")
+
+p1 = Plant.create(name: "plant1", watering: "frequent", sunlight: "full sun", environment: "outside", notes: "good plant", image: "https://cdn.shopify.com/s/files/1/0150/6262/products/the-sill_money-tree_small_bryant_black.jpg?v=1673504761")
+p2 = Plant.create(name: "plant2", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
+p3 = Plant.create(name: "plant3", watering: "frequent", sunlight: "full sun", environment: "outside", notes: "good plant", image: "")
+p4 = Plant.create(name: "plant4", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
+p5 = Plant.create(name: "plant5", watering: "frequent", sunlight: "full sun", environment: "outside", notes: "good plant", image: "")
+p6 = Plant.create(name: "plant6", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
+p7 = Plant.create(name: "plant7", watering: "frequent", sunlight: "full sun", environment: "outside", notes: "good plant", image: "")
+p8 = Plant.create(name: "plant8", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
+p9 = Plant.create(name: "plant9", watering: "frequent", sunlight: "full sun", environment: "outside", notes: "good plant", image: "")
+p10 = Plant.create(name: "plant10", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
 
 
 l1 = Listing.create(title: "Young serviceberrys", plant_name: "apple serviceberry", description: "yada yada yada", city: "San Diego", state: "CA", zipcode: 91976, image: "test", plant_id: 7, user_id: 1)
@@ -33,5 +96,11 @@ l7 = Listing.create(title: "Extra Japanese maples", plant_name: "Japanese maple"
 l8 = Listing.create(title: "Free red maple", plant_name: "red maple", description: "yada yada yada", city: "Salt Lake City", state: "UT", zipcode: 28847, image: "test", plant_id: 3, user_id: 1)
 l9 = Listing.create(title: "ISO home for sugar maple", plant_name: "sugar maple", description: "yada yada yada", city: "San Jose", state: "CA", zipcode: 34823, image: "test", plant_id: 1, user_id: 1)
 l10 = Listing.create(title: "Save my amur maple", plant_name: "Amur maple", description: "yada yada yada", city: "Paradise", state: "AZ", zipcode: 48277, image: "test", plant_id: 4, user_id: 2)
+
+
+f1 = Friendship.create(sender_id: 1, receiver_id: 4, status: "pending")
+f2 = Friendship.create(sender_id: 3, receiver_id: 5, status: "accepted")
+f3 = Friendship.create(sender_id: 4, receiver_id: 6, status: "rejected")
+
 
 puts "✅ Done seeding!"

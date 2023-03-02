@@ -1,0 +1,11 @@
+
+p1 = Plant.create(name: "plant1", watering: "frequent", sunlight: "full sun", environment: "outside", notes: "good plant", image: "")
+p2 = Plant.create(name: "plant2", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
+p3 = Plant.create(name: "plant3", watering: "frequent", sunlight: "full sun", environment: "outside", "good plant", image: "")
+p4 = Plant.create(name: "plant4", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
+p5 = Plant.create(name: "plant5", watering: "frequent", sunlight: "full sun", environment: "outside", notes: "good plant", image: "")
+p6 = Plant.create(name: "plant6", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
+p7 = Plant.create(name: "plant7", watering: "frequent", sunlight: "full sun", environment: "outside", notes: "good plant", image: "")
+p8 = Plant.create(name: "plant8", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
+p9 = Plant.create(name: "plant9", watering: "frequent", sunlight: "full sun", environment: "outside", notes: "good plant", image: "")
+p10 = Plant.create(name: "plant10", watering: "semi-frequent", sunlight: "partial sun", environment: "inside", notes: "bad plant", image: "")
