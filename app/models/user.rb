@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
     def friends
         friendships = Friendship.where(sender: self, status: "accepted").or(Friendship.where(receiver: self, status: "accepted"))
-        friendships.map{|f| f.sender === self ? f.recipient : f.sender}
+        friendships.map{|f| f.sender === self ? f.receiver : f.sender}
     end
 
 end

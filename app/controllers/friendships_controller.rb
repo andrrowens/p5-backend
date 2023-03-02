@@ -1,11 +1,12 @@
 class FriendshipsController < ApplicationController
 
     def index
-        friendships = Friendship.all 
+        friendships = @user.sent_friendships_requests + @user.received_friendships_requests 
         render json: friendships, status: :ok
     end
 
     def create
+        params[:sender_id] = session[:user_id]
         render json: Friendship.create!(friendship_params), status: 201
     end
 

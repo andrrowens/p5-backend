@@ -7,11 +7,12 @@ Rails.application.routes.draw do
 
   get '/authenticated_user', to: 'users#show'
 
-  # get '/profile', to: 'sessions#show' 
+
 
   get '/plants', to: 'plants#get_plants'
 
-  get '/profile', to: 'users#show' 
+  get '/account', to: 'users#show'
+  # get '/account', to: 'sessions#show'  
 
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
