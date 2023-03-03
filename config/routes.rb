@@ -9,14 +9,20 @@ Rails.application.routes.draw do
 
 
 
-  get '/plants', to: 'plants#get_plants'
+  # get '/plants', to: 'plants#get_plants'
 
   # get '/account', to: 'users#show'
   get '/account', to: 'sessions#show'  
 
+  # delete '/user_plants/:id(.:format)', to: 'plants#destroy'
+  delete '/user_plants/:id', to: 'plants#destroy'
+  patch '/user_plants/:id', to: 'plants#update'
+
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
