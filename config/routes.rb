@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   get '/plants', to: 'plants#get_plants'
 
-  get '/account', to: 'users#show'
-  # get '/account', to: 'sessions#show'  
+  # get '/account', to: 'users#show'
+  get '/account', to: 'sessions#show'  
 
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
