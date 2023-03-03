@@ -42,8 +42,15 @@ class PlantsController < ApplicationController
     end
     
  
+    # def create
+    #     @plant = Plant.create(common_name: params[:common_name], scientific_name: params[:scientific_name], cycle: params[:cycle], watering: params[:watering], sunlight: params[:sunlight], image: params[:image])
+    #     if @plant 
+    #         render json: @plant, status: :created
+    #     end
+    # end
+
     def create
-        @plant = Plant.create(common_name: params[:common_name], scientific_name: params[:scientific_name], cycle: params[:cycle], watering: params[:watering], sunlight: params[:sunlight], image: params[:image])
+        @plant = Plant.create(plant_params)
         if @plant 
             render json: @plant, status: :created
         end
@@ -58,6 +65,12 @@ class PlantsController < ApplicationController
         plant = Plant.find(params[:id])
         plant.destroy 
         head :no_content 
+    end
+
+    private 
+
+    def plant_params 
+        params.permit(:name, :watering, :sunlight, :environment, :notes, :image)
     end
 
 end
