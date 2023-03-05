@@ -1,9 +1,20 @@
 class ListingsController < ApplicationController
     before_action :find_listing, only: [:show, :update, :destroy]
 
+    # def show
+    #     render json: @listing 
+    # end
+
     def show
-        render json: @listing 
+        if @listing.user == @user
+        render json: @listing, status: :ok
+        end 
     end
+
+    # def show
+    #     userlisting = @listing.listing
+    #     render json: userlisting, status: :ok
+    # end
     
     def index
         listings = Listing.all
@@ -38,7 +49,7 @@ class ListingsController < ApplicationController
     end
     
     def listing_params 
-        params.permit(:title, :plant_name, :description, :image, :city, :state, :zipcode, :plant_id, :user_id)
+        params.permit(:id, :title, :plant_name, :description, :image, :city, :state, :zipcode, :plant_id, :user_id)
     end
 
 
