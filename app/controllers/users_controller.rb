@@ -13,6 +13,11 @@ class UsersController < ApplicationController
         # debugger
     end
 
+    # def show
+    #     userlisting = @user.listings
+    #     render json: userlisting, status: :ok
+    # end
+
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id
