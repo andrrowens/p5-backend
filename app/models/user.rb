@@ -11,9 +11,19 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
        
 
-    def friends
+    def accepted_friends
         friendships = Friendship.where(sender: self, status: "accepted").or(Friendship.where(receiver: self, status: "accepted"))
         friendships.map{|f| f.sender === self ? f.receiver : f.sender}
+    end
+
+    def pending_friends
+        pending = Friendship.where(sender: self, status: "pending").or(Friendship.where(receiver: self, status: "pending"))
+        pending.map{|f| f.sender === self ? f.receiver : f.sender}
+    end
+
+    def rejected_friends
+        rejected = Friendship.where(sender: self, status: "rejected").or(Friendship.where(receiver: self, status: "rejected"))
+        rejected.map{|f| f.sender === self ? f.receiver : f.sender}
     end
 
 end

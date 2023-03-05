@@ -24,10 +24,6 @@ class UsersController < ApplicationController
         render json: user, status: :created   
     end
 
-    def profile
-        render json: @user, serializer: UserProfileSerializer
-    end
-
     private 
 
     def user_params

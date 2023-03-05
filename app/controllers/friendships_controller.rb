@@ -10,6 +10,14 @@ class FriendshipsController < ApplicationController
         render json: Friendship.create!(friendship_params), status: 201
     end
 
+    def update
+        friend = Friendship.find(params[:id])
+        if friend.receiver == @user || friend.sender == @user
+            friend.update(status: "accepted")
+        end
+        render json: friend, status: 202 
+    end
+
 
     def destroy
         friend = Friendship.find(params[:id])
