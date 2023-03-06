@@ -12,6 +12,12 @@ class ListingsController < ApplicationController
     end
 
     # def show
+    #     if listing.user == @user
+    #     render json: listing, status: :ok
+    #     end 
+    # end
+
+    # def show
     #     userlisting = @listing.listing
     #     render json: userlisting, status: :ok
     # end
