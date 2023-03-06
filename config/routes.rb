@@ -12,9 +12,13 @@ Rails.application.routes.draw do
   # get '/plants', to: 'plants#get_plants'
 
   # get '/account', to: 'users#show'
-  get '/account', to: 'sessions#show'  
+  # get '/account', to: 'sessions#show'  
+
+  patch '/account/:id', to: 'users#update'
+  delete '/account/:id', to: 'users#destroy'
 
   # delete '/user_plants/:id(.:format)', to: 'plants#destroy'
+  # get 'user_plants'
   delete '/user_plants/:id', to: 'plants#destroy'
   patch '/user_plants/:id', to: 'plants#update'
 
