@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   delete '/user_plants/:id', to: 'plants#destroy'
   patch '/user_plants/:id', to: 'plants#update'
 
-  get '/listings/mylistings', to: 'listings#show'
+  get '/mylistings/:id', to: 'listings#show'
 
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
