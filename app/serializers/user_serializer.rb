@@ -1,10 +1,18 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :password, :username, :city, :state, :zipcode, :accepted_friends, :pending_friends, :rejected_friends
+  attributes :id, :email, :username, :city, :state, :zipcode, :accepted_friends, :pending_friends, :rejected_friends, :pending_received_friendship_requests
 
   has_many :sent_friendships_requests
   has_many :received_friendships_requests
 
   has_many :listings 
+
+  def pending_received_friendship_requests 
+    self.object.received_friendships_requests.pending 
+  end
+
+  def approved_received_friendship_requests 
+    self.object.received_friendships_requests.approved 
+  end
 
   
 end

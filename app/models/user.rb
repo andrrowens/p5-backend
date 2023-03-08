@@ -8,7 +8,7 @@ class User < ApplicationRecord
     has_many :received_friendships_requests, class_name: "Friendship", foreign_key: :receiver_id, dependent: :destroy
 
     validates :username, :city, :state, :zipcode, presence: true 
-    validates :username, uniqueness: true
+    validates :username, :email, uniqueness: true
        
 
     def accepted_friends
