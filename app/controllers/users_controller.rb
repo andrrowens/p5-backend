@@ -10,6 +10,18 @@ class UsersController < ApplicationController
     def show 
         # user = User.find(params[:id])
         render json: @user, status: :ok
+        # debugger
+    end
+
+    # def show
+    #     userlisting = @user.listings
+    #     render json: userlisting, status: :ok
+    # end
+
+    def update 
+        user = @user 
+        user.update!(user_params)
+        render json: user, status: :accepted
     end
 
     def create
@@ -21,7 +33,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.permit(:email, :username, :password)
+        params.permit(:email, :password, :username, :city, :state, :zipcode)
     end
 
 end

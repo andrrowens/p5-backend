@@ -12,6 +12,16 @@ class SessionsController < ApplicationController
         end
     end
 
+    # def show 
+    #     user = User.find_by(username:params[:username])
+    #     if user&.authenticate(params[:password]) 
+    #         session[:user_id] = user.id
+    #         render json: user, status: :ok
+    #     else
+    #         render json: {errors: "Incorrect Username or Password"}, status: :unauthorized
+    #     end
+    # end
+
     def destroy 
         session.delete :user_id 
         head :no_content

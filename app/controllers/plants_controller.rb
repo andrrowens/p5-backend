@@ -1,28 +1,5 @@
-# require 'dotenv'
-# require 'json'
-# Dotenv.load
-
 class PlantsController < ApplicationController
-
- 
-#     def plants
-#             @response =  RestClient.get "https://perenual.com/api/species-list?page=1",
-#              {content_type: :json, accept: :json, "user-key": ENV["API_KEY"]}
-          
-#             @plant_info = JSON.parse(@response.body)["plants"][0]
-             
-#             if @plant_info
-#               @plants = RestClient.get "https://perenual.com/api/species-list?page=1", 
-#               {content_type: :json, accept: :json, "user-key": ENV["API_KEY"]}
-         
-#               @plant_info["plants"] = JSON.parse(@plants.body)["plants"]
-         
-#               render json: @plants
-#             else
-#               render json: {message: "Plant Not Found", error: 404}
-#             end
-#             end
-# end
+    before_action :find_plant, only: [:show, :update, :destroy]
 
     def index 
         plants = Plant.all 
@@ -35,22 +12,58 @@ class PlantsController < ApplicationController
     end
     
  
+    # def create
+    #     @plant = Plant.create(common_name: params[:common_name], scientific_name: params[:scientific_name], cycle: params[:cycle], watering: params[:watering], sunlight: params[:sunlight], image: params[:image])
+    #     if @plant 
+    #         render json: @plant, status: :created
+    #     end
+    # end
+
     def create
-        @plant = Plant.create(common_name: params[:common_name], scientific_name: params[:scientific_name], cycle: params[:cycle], watering: params[:watering], sunlight: params[:sunlight], image: params[:image])
+        @plant = Plant.create(plant_params)
         if @plant 
             render json: @plant, status: :created
         end
     end
 
     def update
-        plant = Plant.find(user_id: session[:user_id])
+        plant = Plant.find(params[:id])
+        plant.update!(plant_params)
         render json: plant, status: :accepted
     end
 
+    def update
+        if @plant.user == @user
+        @plant.update!(plant_params)
+        render json: @plant, status: :accepted
+        else 
+            render json: "Unauthorized", status: :unauthorized
+        end
+    end
+
+    # def destroy
+    #     plant = Plant.find(params[:id])
+    #     plant.destroy 
+    #     head :no_content 
+    # end
+
     def destroy
-        plant = Plant.find(params[:id])
-        plant.destroy 
-        head :no_content 
+        if @plant.user == @user
+            @plant.destroy 
+            head :no_content
+        else 
+            render json: "Unauthorized", status: :unauthorized
+        end
+    end
+
+    private 
+
+    def plant_params 
+        params.permit(:name, :watering, :sunlight, :environment, :notes, :image)
+    end
+
+    def find_plant 
+        @plant = Plant.find(params[:id])
     end
 
 end

@@ -1,13 +1,30 @@
 class ListingsController < ApplicationController
     before_action :find_listing, only: [:show, :update, :destroy]
 
+    # def show
+    #     render json: @listing 
+    # end
+
     def show
-        render json: @listing 
+        if @listing.user == @user
+        render json: @listing, status: :ok
+        end 
     end
+
+    # def show
+    #     if listing.user == @user
+    #     render json: listing, status: :ok
+    #     end 
+    # end
+
+    # def show
+    #     userlisting = @listing.listing
+    #     render json: userlisting, status: :ok
+    # end
     
     def index
         listings = Listing.all
-        render json: listings 
+        render json: listings, include: :user  
     end
     
     def create
@@ -20,13 +37,17 @@ class ListingsController < ApplicationController
         if @listing.user == @user
         @listing.update!(listing_params)
         render json: @listing, status: :accepted
+        else 
+            render json: "Unauthorized", status: :unauthorized
         end
     end
 
     def destroy
         if @listing.user == @user
             @listing.destroy 
-            head :no_content 
+            head :no_content
+        else 
+            render json: "Unauthorized", status: :unauthorized
         end
     end
 
