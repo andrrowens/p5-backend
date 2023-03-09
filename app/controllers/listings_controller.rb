@@ -12,6 +12,12 @@ class ListingsController < ApplicationController
     end
 
     # def show
+    #     if listing.user == @user
+    #     render json: listing, status: :ok
+    #     end 
+    # end
+
+    # def show
     #     userlisting = @listing.listing
     #     render json: userlisting, status: :ok
     # end
@@ -31,13 +37,17 @@ class ListingsController < ApplicationController
         if @listing.user == @user
         @listing.update!(listing_params)
         render json: @listing, status: :accepted
+        else 
+            render json: "Unauthorized", status: :unauthorized
         end
     end
 
     def destroy
         if @listing.user == @user
             @listing.destroy 
-            head :no_content 
+            head :no_content
+        else 
+            render json: "Unauthorized", status: :unauthorized
         end
     end
 
@@ -49,7 +59,7 @@ class ListingsController < ApplicationController
     end
     
     def listing_params 
-        params.permit(:id, :title, :plant_name, :description, :image, :city, :state, :zipcode, :plant_id, :user_id)
+        params.permit(:title, :plant_name, :description, :image, :city, :state, :zipcode, :plant_id, :user_id)
     end
 
 

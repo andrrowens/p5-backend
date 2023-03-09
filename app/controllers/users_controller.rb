@@ -18,20 +18,22 @@ class UsersController < ApplicationController
     #     render json: userlisting, status: :ok
     # end
 
+    def update 
+        user = @user 
+        user.update!(user_params)
+        render json: user, status: :accepted
+    end
+
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id
         render json: user, status: :created   
     end
 
-    def profile
-        render json: @user, serializer: UserProfileSerializer
-    end
-
     private 
 
     def user_params
-        params.permit(:email, :username, :password, :city, :state, :zipcode)
+        params.permit(:email, :password, :username, :city, :state, :zipcode)
     end
 
 end
