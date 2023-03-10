@@ -26,35 +26,36 @@ class PlantsController < ApplicationController
         end
     end
 
-    def update
-        plant = Plant.find(params[:id])
-        plant.update!(plant_params)
-        render json: plant, status: :accepted
-    end
-
-    def update
-        if @plant.user == @user
-        @plant.update!(plant_params)
-        render json: @plant, status: :accepted
-        else 
-            render json: "Unauthorized", status: :unauthorized
-        end
-    end
-
-    # def destroy
+    # def update
     #     plant = Plant.find(params[:id])
-    #     plant.destroy 
-    #     head :no_content 
+    #     plant.update!(plant_params)
+    #     render json: plant, status: :accepted
+    # end
+
+
+    # def update
+    #     if @plant.user == @user
+    #     @plant.update!(plant_params)
+    #     render json: @plant, status: :accepted
+    #     else 
+    #         render json: "Unauthorized", status: :unauthorized
+    #     end
     # end
 
     def destroy
-        if @plant.user == @user
-            @plant.destroy 
-            head :no_content
-        else 
-            render json: "Unauthorized", status: :unauthorized
-        end
+        plant = Plant.find(params[:id])
+        plant.destroy 
+        head :no_content 
     end
+
+    # def destroy
+    #     if @plant.user == @user
+    #         @plant.destroy 
+    #         head :no_content
+    #     else 
+    #         render json: "Unauthorized", status: :unauthorized
+    #     end
+    # end
 
     private 
 
