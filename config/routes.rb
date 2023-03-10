@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  delete 'friendships/remove', to: 'friendships#remove'
+
   resources :friendships
   resources :plants
   resources :listings
@@ -13,6 +16,8 @@ Rails.application.routes.draw do
 
   # get '/account', to: 'users#show'
   # get '/account', to: 'sessions#show'  
+
+
 
   patch '/account/:id', to: 'users#update'
   delete '/account/:id', to: 'users#destroy'

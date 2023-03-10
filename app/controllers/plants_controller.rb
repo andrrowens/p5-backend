@@ -20,17 +20,15 @@ class PlantsController < ApplicationController
     # end
 
     def create
-        @plant = Plant.create(plant_params)
-        if @plant 
-            render json: @plant, status: :created
-        end
+        @plant = @user.created_plants.create!(plant_params)
+        render json: @plant, status: :created
     end
 
-    # def update
-    #     plant = Plant.find(params[:id])
-    #     plant.update!(plant_params)
-    #     render json: plant, status: :accepted
-    # end
+    def update
+        plant = Plant.find(params[:id])
+        plant.update!(plant_params)
+        render json: plant, status: :accepted
+    end
 
 
     # def update

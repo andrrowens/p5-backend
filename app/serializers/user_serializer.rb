@@ -3,6 +3,7 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :sent_friendships_requests
   has_many :received_friendships_requests
+  has_many :created_plants 
 
   has_many :listings 
 
