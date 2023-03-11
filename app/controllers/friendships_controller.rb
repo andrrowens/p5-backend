@@ -27,6 +27,12 @@ class FriendshipsController < ApplicationController
         render json: @user, status: 202
     end
 
+    def remove 
+        friendships = Friendship.where(sender: @user, receiver_id:params[:friend_id]).or(Friendship.where(receiver: @user, sender_id: params[:friend_id]))
+        friendships.delete_all
+        render json: @user, status: 200
+    end
+
 
     private
 

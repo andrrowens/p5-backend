@@ -61,6 +61,4 @@ class ListingsController < ApplicationController
     def listing_params 
         params.permit(:title, :plant_name, :description, :image, :city, :state, :zipcode, :plant_id, :user_id)
     end
-
-
 end
